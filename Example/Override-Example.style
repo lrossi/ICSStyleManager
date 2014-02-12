@@ -1,0 +1,9 @@
+// TABLE VIEW
+
+tableView {
+    viewCell {
+        square1 {
+            width = #(40)
+        }
+    }
+}

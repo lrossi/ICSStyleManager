@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Categories/NSRegularExpression+ICSRegEx.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cat/NSRegularExpression(ICSRegEx)</TokenIdentifier>
+			<Abstract type="html">The ICSRegEx category adds methods that facilitate parsing and extracting
+token substrings from an NSString given a certain regular expression pattern.</Abstract>
+			<DeclaredIn>NSRegularExpression+ICSRegEx.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/NSRegularExpression/ics_capturedSubstringsWithFirstMatchOfPattern:inString:</TokenIdentifier>
+			<Abstract type="html">Given a string to look into and a regular expression pattern containing
+one or more capturing subexpressions, returns an array of the
+substrings captured in the first match of the regular expression pattern.</Abstract>
+			<DeclaredIn>NSRegularExpression+ICSRegEx.h</DeclaredIn>
+			
+			<Declaration>+ (NSArray *)ics_capturedSubstringsWithFirstMatchOfPattern:(NSString *)pattern inString:(NSString *)string</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>pattern</Name>
+					<Abstract type="html">The regular expression pattern containing one or more
+                capturing subexpressions.</Abstract>
+				</Parameter><Parameter>
+					<Name>string</Name>
+					<Abstract type="html">The string to look into.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An array of the substrings captured in the first match of the
+         regular expression pattern. If there are no matches or if the
+         given pattern contains no capturing subexpressions, the
+         returned array is empty.</Abstract></ReturnValue>
+			<Anchor>//api/name/ics_capturedSubstringsWithFirstMatchOfPattern:inString:</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/NSRegularExpression/ics_pattern:matchesInString:</TokenIdentifier>
+			<Abstract type="html">Checks whether the given regular expression pattern matches at least
+once in the given string.</Abstract>
+			<DeclaredIn>NSRegularExpression+ICSRegEx.h</DeclaredIn>
+			
+			<Declaration>+ (BOOL)ics_pattern:(NSString *)pattern matchesInString:(NSString *)string</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>pattern</Name>
+					<Abstract type="html">The regular expression pattern to be tested for matching.</Abstract>
+				</Parameter><Parameter>
+					<Name>string</Name>
+					<Abstract type="html">The string to look into.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">YES if the given regular expression pattern matches at least
+         once in the given string, NO otherwise.</Abstract></ReturnValue>
+			<Anchor>//api/name/ics_pattern:matchesInString:</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+        
+	</File>
+</Tokens>

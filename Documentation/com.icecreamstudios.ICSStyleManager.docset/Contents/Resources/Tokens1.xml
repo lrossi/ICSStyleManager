@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/ICSStyleManager.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/ICSStyleManager</TokenIdentifier>
+			<Abstract type="html">The ICSStyleManager class parses and loads a style from an external
+file bundled within the app, and provides methods to retrieve values
+matching specific keys defined in the style file.</Abstract>
+			<DeclaredIn>ICSStyleManager.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/ICSStyleManager/sharedManager</TokenIdentifier>
+			<Abstract type="html">Returns the shared style manager object.</Abstract>
+			<DeclaredIn>ICSStyleManager.h</DeclaredIn>
+			
+			<Declaration>+ (instancetype)sharedManager</Declaration>
+			
+			<ReturnValue><Abstract type="html">The shared file manager object. The object will be lazily
+         istantiated the first time the method is called, then the
+         method will always return the same object until app
+         termination.</Abstract></ReturnValue>
+			<Anchor>//api/name/sharedManager</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ICSStyleManager/loadStyle:</TokenIdentifier>
+			<Abstract type="html">Loads a style from a style file into the style manager. Once a
+style has been loaded, the values it defines can be retrieved
+by passing the corresponding keys to the getter methods.
+Debug logging when loading a style can be enabled by defining
+the ICSSTYLEMANAGER_LOG preprocessor identifier.</Abstract>
+			<DeclaredIn>ICSStyleManager.h</DeclaredIn>
+			
+			<Declaration>- (void)loadStyle:(NSString *)styleName</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>styleName</Name>
+					<Abstract type="html">The name of the style to be loaded. The .style
+                  extension will be appended to the style name
+                  and then the manager will expect to find a
+                  style file with such a name inside the app&apos;s
+                  Bundle Resources.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/loadStyle:</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ICSStyleManager/floatForKey:</TokenIdentifier>
+			<Abstract type="html">Returns the floating-point number value associated with the
+specified key.</Abstract>
+			<DeclaredIn>ICSStyleManager.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instm/ICSStyleManager/integerForKey:</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/instm/ICSStyleManager/unsignedIntegerForKey:</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/instm/ICSStyleManager/loadStyle:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (CGFloat)floatForKey:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>key</Name>
+					<Abstract type="html">A key defined in a style previously loaded with
+            loadStyle:.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">The floating-point number associated with the
+            specified key.</Abstract></ReturnValue>
+			<Anchor>//api/name/floatForKey:</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ICSStyleManager/rectForKey:</TokenIdentifier>
+			<Abstract type="html">Returns the CGRect value associated with the specified
+key.</Abstract>
+			<DeclaredIn>ICSStyleManager.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instm/ICSStyleManager/loadStyle:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (CGRect)rectForKey:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>key</Name>
+					<Abstract type="html">A key defined in a style previously loaded with
+            loadStyle:.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">The CGRect value associated with the specified
+            key.</Abstract></ReturnValue>
+			<Anchor>//api/name/rectForKey:</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ICSStyleManager/sizeForKey:</TokenIdentifier>
+			<Abstract type="html">Returns the CGSize value associated with the specified
+key.</Abstract>
+			<DeclaredIn>ICSStyleManager.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instm/ICSStyleManager/loadStyle:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (CGSize)sizeForKey:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>key</Name>
+					<Abstract type="html">A key defined in a style previously loaded with
+            loadStyle:.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">The CGSize value associated with the specified
+            key.</Abstract></ReturnValue>
+			<Anchor>//api/name/sizeForKey:</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ICSStyleManager/pointForKey:</TokenIdentifier>
+			<Abstract type="html">Returns the CGPoint value associated with the specified
+key.</Abstract>
+			<DeclaredIn>ICSStyleManager.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instm/ICSStyleManager/loadStyle:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (CGPoint)pointForKey:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>key</Name>
+					<Abstract type="html">A key defined in a style previously loaded with
+            loadStyle:.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">The CGPoint value associated with the specified
+            key.</Abstract></ReturnValue>
+			<Anchor>//api/name/pointForKey:</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ICSStyleManager/fontForKey:</TokenIdentifier>
+			<Abstract type="html">Returns the UIFont value associated with the specified
+key.</Abstract>
+			<DeclaredIn>ICSStyleManager.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instm/ICSStyleManager/loadStyle:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (UIFont *)fontForKey:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>key</Name>
+					<Abstract type="html">A key defined in a style previously loaded with
+            loadStyle:.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">The UIFont value associated with the specified
+            key.</Abstract></ReturnValue>
+			<Anchor>//api/name/fontForKey:</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ICSStyleManager/colorForKey:</TokenIdentifier>
+			<Abstract type="html">Returns the UIColor value associated with the specified
+key.</Abstract>
+			<DeclaredIn>ICSStyleManager.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instm/ICSStyleManager/loadStyle:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (UIColor *)colorForKey:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>key</Name>
+					<Abstract type="html">A key defined in a style previously loaded with
+            loadStyle:.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">The UIColor value associated with the specified
+            key.</Abstract></ReturnValue>
+			<Anchor>//api/name/colorForKey:</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ICSStyleManager/unsignedIntegerForKey:</TokenIdentifier>
+			<Abstract type="html">Returns the unsigned integer value associated with the
+specified key.</Abstract>
+			<DeclaredIn>ICSStyleManager.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instm/ICSStyleManager/integerForKey:</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/instm/ICSStyleManager/loadStyle:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (NSUInteger)unsignedIntegerForKey:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>key</Name>
+					<Abstract type="html">A key defined in a style previously loaded with
+            loadStyle:.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">The unsigned integer value associated with the
+            specified key.</Abstract></ReturnValue>
+			<Anchor>//api/name/unsignedIntegerForKey:</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ICSStyleManager/integerForKey:</TokenIdentifier>
+			<Abstract type="html">Returns the integer value associated with the specified key.</Abstract>
+			<DeclaredIn>ICSStyleManager.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instm/ICSStyleManager/unsignedIntegerForKey:</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/instm/ICSStyleManager/loadStyle:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (NSInteger)integerForKey:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>key</Name>
+					<Abstract type="html">A key defined in a style previously loaded with
+            loadStyle:.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">The integer value associated with the specified
+            key.</Abstract></ReturnValue>
+			<Anchor>//api/name/integerForKey:</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ICSStyleManager/timeIntervalForKey:</TokenIdentifier>
+			<Abstract type="html">Returns the NSTimeInterval value associated with the
+specified key.</Abstract>
+			<DeclaredIn>ICSStyleManager.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instm/ICSStyleManager/loadStyle:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (NSTimeInterval)timeIntervalForKey:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>key</Name>
+					<Abstract type="html">A key defined in a style previously loaded with
+            loadStyle:.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">The NSTimeInterval value associated with the
+            specified key.</Abstract></ReturnValue>
+			<Anchor>//api/name/timeIntervalForKey:</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+        
+	</File>
+</Tokens>

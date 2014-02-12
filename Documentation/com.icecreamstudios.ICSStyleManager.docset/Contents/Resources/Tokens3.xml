@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Categories/UIColor+ICSRGB.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cat/UIColor(ICSRGB)</TokenIdentifier>
+			<Abstract type="html">The ICSRGB category adds easy UIColor instance creation
+given RGB and RGBA values.</Abstract>
+			<DeclaredIn>UIColor+ICSRGB.h</DeclaredIn>
+            
+			
+			<NodeRef refid="3"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/UIColor/ics_colorWithRGBValues:</TokenIdentifier>
+			<Abstract type="html">Returns a color created with the given RGB components. The alpha
+component of the new color is set to 1.0.</Abstract>
+			<DeclaredIn>UIColor+ICSRGB.h</DeclaredIn>
+			
+			<Declaration>+ (UIColor *)ics_colorWithRGBValues:(ICSRGB)rgbValues</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>rgbValues</Name>
+					<Abstract type="html">The RGB components of the new color.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">A color created with the given RGB components.</Abstract></ReturnValue>
+			<Anchor>//api/name/ics_colorWithRGBValues:</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/UIColor/ics_colorWithRGBValues:alpha:</TokenIdentifier>
+			<Abstract type="html">Returns a color created with the given RGB and alpha components.</Abstract>
+			<DeclaredIn>UIColor+ICSRGB.h</DeclaredIn>
+			
+			<Declaration>+ (UIColor *)ics_colorWithRGBValues:(ICSRGB)rgbValues alpha:(CGFloat)alpha</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>rgbValues</Name>
+					<Abstract type="html">The RGB components of the new color.</Abstract>
+				</Parameter><Parameter>
+					<Name>alpha</Name>
+					<Abstract type="html">The alpha component of the new color.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">A color created with the given RGB and alpha components.</Abstract></ReturnValue>
+			<Anchor>//api/name/ics_colorWithRGBValues:alpha:</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/UIColor/ics_colorWithRGBAValues:</TokenIdentifier>
+			<Abstract type="html">Returns a color created with the given RGBA components. This
+is equivalent to calling ics_colorWithRGBValues:alpha: and passing
+rgbaValues.a as alpha parameter.</Abstract>
+			<DeclaredIn>UIColor+ICSRGB.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instm/UIColor/ics_colorWithRGBValues:alpha:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>+ (UIColor *)ics_colorWithRGBAValues:(ICSRGBA)rgbaValues</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>rgbaValues</Name>
+					<Abstract type="html">The RGBA components of the new color.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">A color created with the given RGBA components.</Abstract></ReturnValue>
+			<Anchor>//api/name/ics_colorWithRGBAValues:</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+        
+	</File>
+</Tokens>

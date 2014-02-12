@@ -1,0 +1,3 @@
+[submodule "Source/Libraries/DDMathParser"]
+	path = Source/Libraries/DDMathParser
+	url = https://github.com/davedelong/DDMathParser

@@ -1,0 +1,81 @@
+// APP-WIDE STYLE
+
+tintColor = %(74, 112, 124)
+
+view {
+    height = #(500)
+    width = #(320)
+}
+
+mainColor {
+    foreground = %(60)
+    background = %(247, 249, 254)
+}
+
+font {
+    subheadline = FONT (Subheadline)
+    body = FONT (Body)
+    extra = FONT (Caption1)
+}
+
+cell {
+    defaultSideMargin = #(15)
+}
+
+
+// WINDOW
+
+window {
+    backgroundColor = @mainColor.background
+}
+
+
+// NAVIGATION BAR
+
+navigationBar {
+    backgroundColor = %(203, 219, 224)
+    titleColor = @mainColor.foreground
+}
+
+
+// MAIN TABLE VIEW
+
+tableView {
+    defaultCellHeight = #(44)
+    backgroundColor = @mainColor.background
+    cellBackgroundColor = %(236, 241, 242)
+
+    header {
+        font = @font.subheadline
+        textColor = @mainColor.foreground
+        height = #(50)
+        sideMargin = #(@cell.defaultSideMargin + 5)
+    }
+
+    label1Cell {
+        font = @font.body
+    }
+    
+    label2Cell {
+        font = FONT (Avenir-Book, 24)
+    }
+
+    viewCell {
+        squareMargin = #(10)
+        squareHeight = #(50)
+
+        square1 {
+            position = P (@tableView.viewCell.squareMargin, @tableView.viewCell.squareMargin)
+            width = #(120)
+            color = %(203, 224, 203)
+        }
+        
+        square2 {
+            position = P (@tableView.viewCell.squareMargin, @tableView.viewCell.squareMargin * 2 + @tableView.viewCell.squareHeight)
+            width = #(80)
+            color = %(203, 212, 224)
+        }
+        
+        height = #((@tableView.viewCell.squareMargin * 3) + (@tableView.viewCell.squareHeight * 2))
+    }
+}
