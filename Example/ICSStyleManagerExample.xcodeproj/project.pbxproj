@@ -42,7 +42,7 @@
 		82A09B0718AA8F1D0084778C /* DDMathOperator.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A09AE818AA8F1D0084778C /* DDMathOperator.m */; };
 		82A09B0818AA8F1D0084778C /* DDMathStringToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A09AEC18AA8F1D0084778C /* DDMathStringToken.m */; };
 		82A09B0918AA8F1D0084778C /* DDMathStringTokenizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A09AEE18AA8F1D0084778C /* DDMathStringTokenizer.m */; };
-		82A09B0A18AA8F1D0084778C /* DDParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A09AF018AA8F1D0084778C /* DDParser.m */; };
+		82A09B0A18AA8F1D0084778C /* DDParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A09AF018AA8F1D0084778C /* DDParser.m */; settings = {COMPILER_FLAGS = "-w"; }; };
 		82A09B0B18AA8F1D0084778C /* DDParserTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A09AF218AA8F1D0084778C /* DDParserTypes.m */; };
 		82A09B0C18AA8F1D0084778C /* DDTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A09AF418AA8F1D0084778C /* DDTypes.m */; };
 		82A09B0D18AA8F1D0084778C /* NSString+DDMathParsing.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A09AF618AA8F1D0084778C /* NSString+DDMathParsing.m */; };
@@ -349,7 +349,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = ICS;
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "ice cream studios s.r.l.";
 			};
 			buildConfigurationList = 82B0AA74187EBE0600BA44AE /* Build configuration list for PBXProject "ICSStyleManagerExample" */;
@@ -472,7 +472,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -510,7 +509,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
