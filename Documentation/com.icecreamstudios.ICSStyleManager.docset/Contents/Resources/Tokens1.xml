@@ -182,6 +182,31 @@ key.</Abstract>
 		</Token>
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ICSStyleManager/imageForKey:</TokenIdentifier>
+			<Abstract type="html">Returns the UIImage value associated with the specified
+key.</Abstract>
+			<DeclaredIn>ICSStyleManager.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instm/ICSStyleManager/loadStyle:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (UIImage *)imageForKey:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>key</Name>
+					<Abstract type="html">A key defined in a style previously loaded with
+            loadStyle:.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">The UIImage value associated with the specified
+            key.</Abstract></ReturnValue>
+			<Anchor>//api/name/imageForKey:</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/ICSStyleManager/colorForKey:</TokenIdentifier>
 			<Abstract type="html">Returns the UIColor value associated with the specified
 key.</Abstract>
@@ -279,6 +304,57 @@ specified key.</Abstract>
 			<ReturnValue><Abstract type="html">The NSTimeInterval value associated with the
             specified key.</Abstract></ReturnValue>
 			<Anchor>//api/name/timeIntervalForKey:</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ICSStyleManager/setImageLoader:</TokenIdentifier>
+			<Abstract type="html">The object that acts as image loader for all the images
+defined in the loaded style files. If this property is
+set to nil (which is the default value), ICSStyleManager
+will load images using +[UIImage imageNamed:]. The
+image loader object must adopt the
+ICSStyleManagerImageLoader protocol.</Abstract>
+			<DeclaredIn>ICSStyleManager.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, weak) id&lt;ICSStyleManagerImageLoader&gt; imageLoader</Declaration>
+			
+			
+			<Anchor>//api/name/imageLoader</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ICSStyleManager/imageLoader</TokenIdentifier>
+			<Abstract type="html">The object that acts as image loader for all the images
+defined in the loaded style files. If this property is
+set to nil (which is the default value), ICSStyleManager
+will load images using +[UIImage imageNamed:]. The
+image loader object must adopt the
+ICSStyleManagerImageLoader protocol.</Abstract>
+			<DeclaredIn>ICSStyleManager.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, weak) id&lt;ICSStyleManagerImageLoader&gt; imageLoader</Declaration>
+			
+			
+			<Anchor>//api/name/imageLoader</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ICSStyleManager/imageLoader</TokenIdentifier>
+			<Abstract type="html">The object that acts as image loader for all the images
+defined in the loaded style files. If this property is
+set to nil (which is the default value), ICSStyleManager
+will load images using +[UIImage imageNamed:]. The
+image loader object must adopt the
+ICSStyleManagerImageLoader protocol.</Abstract>
+			<DeclaredIn>ICSStyleManager.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, weak) id&lt;ICSStyleManagerImageLoader&gt; imageLoader</Declaration>
+			
+			
+			<Anchor>//api/name/imageLoader</Anchor>
             <NodeRef refid="1"/>
 		</Token>
 		

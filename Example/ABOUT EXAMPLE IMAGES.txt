@@ -1,0 +1,2 @@
+- example_image.jpg from http://pixabay.com/en/water-splash-flow-drop-of-water-282784/
+- pattern_image.png from http://subtlepatterns.com/ps-neutral/

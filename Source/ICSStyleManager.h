@@ -27,6 +27,10 @@
 
 #import <Foundation/Foundation.h>
 
+
+@protocol ICSStyleManagerImageLoader;
+
+
 /**
  The `ICSStyleManager` class parses and loads a style from an external
  file bundled within the app, and provides methods to retrieve values
@@ -102,6 +106,10 @@
     // define a CGRect value corresponding to CGRectMake(10, 10, 44, 44)
     rectValue = R (10, 10, 44, 44)
  
+    // define a UIImage value by loading an image from the app's bundle
+    // resources
+    imageValue = IMAGE (example_image)
+ 
  The following sections describe each of the supported types and
  syntaxes with greater detail.
  
@@ -135,7 +143,8 @@
  #### Color Values
  
  Color (i.e. `UIColor`) values can be defined in a *style file* with
- the syntaxes `%(r, g, b)`, `%(r, g, b, a)` or `%(gray)`, where:
+ the syntaxes `%(r, g, b)`, `%(r, g, b, a)`, `%(gray)` or
+ `%(pattern_image)`, where:
  
  -  *r*, *g* and *b* are color components written as integer numbers
     in range between `0` and `255`.
@@ -146,9 +155,17 @@
  -  *gray* is a gray color component (*r*=*g*=*b*) written as integer
     number in range between `0` and `255`.
  
- <div class="warning"> <strong>Warning:</strong> Numerical expressions
- are not currently supported for the <em>r</em>, <em>g</em>, <em>b</em>,
- <em>a</em> and <em>gray</em> color components. </div>
+ -  *pattern_image* is the name of an image that `ICSStyleManager`
+    will pass to `++[UIColor colorWithPatternImage:]` to construct
+    the `UIColor`value. The image will be loaded according to the
+    same policy used for [image values](#image-values).
+ 
+ <div class="warning"> <strong>Warning:</strong>
+ <a href="#numerical-expressions">Numerical expressions</a> are not
+ currently supported for the <em>r</em>, <em>g</em>, <em>b</em>,
+ <em>a</em> and <em>gray</em> color components.
+ <a href="#variables">Variables</a> are not currently supported
+ in place of a <em>pattern_image</em> name.</div>
  
  #### Rect Values
  
@@ -176,6 +193,30 @@
  -  *x* and *y* are the values you would pass to `CGPointMake()` and
     can be written as integers, floating-point numbers or
     [numerical expressions](#numerical-expressions).
+ 
+ ### <a id="image-values"></a>Image Values
+ 
+ Image (i.e. `UIImage`) values can be defined in a *style file* with
+ either the syntax `IMAGE(<image name>)` or `IMAGE(<image name>,
+ <top cap inset>, <left cap inset>, <bottom cap inset>, <right cap
+ inset>)`, where:
+ 
+ -  The *image name* is the name of the image to be loaded. By
+    default, `ICSStyleManager` uses `++[UIImage imageNamed:]` to
+    load the image from the app's bundle resources. You can override
+    this behavior by specifying an imageLoader.
+    <div class="warning">In order to avoid preventive waste of
+    memory, the actual image loading only occurs when
+    `ICSStyleManager` is sent the message imageForKey: for the
+    appropriate key.</div>
+ 
+ -  *top cap inset*, *left cap inset*, *bottom cap inset* and *right
+    cap inset* are the values you would pass to `UIEdgeInsetsMake()`
+    and can be written as integers, floating-point numbers or
+    [numerical expressions](#numerical-expressions). If you specify
+    cap insets, `ICSStyleManager` will consider the image resizable
+    and will construct the UIImage value through
+    `--[UIImage resizableImageWithCapInsets:]`.
  
  #### <a id="numerical-expressions"></a> Numerical Expressions
  
@@ -439,6 +480,21 @@
 
 
 /**
+ Returns the `UIImage` value associated with the specified
+ key.
+ 
+ @param key A key defined in a style previously loaded with
+            loadStyle:.
+ 
+ @return    The `UIImage` value associated with the specified
+            key.
+ 
+ @see       loadStyle:
+ */
+- (UIImage *)imageForKey:(NSString *)key;
+
+
+/**
  Returns the `UIColor` value associated with the specified
  key.
  
@@ -497,5 +553,48 @@
  @see       loadStyle:
  */
 - (NSTimeInterval)timeIntervalForKey:(NSString *)key;
+
+
+/** @name Managing the Image Loader */
+
+/**
+ The object that acts as image loader for all the images
+ defined in the loaded style files. If this property is
+ set to nil (which is the default value), `ICSStyleManager`
+ will load images using `++[UIImage imageNamed:]`. The
+ image loader object must adopt the
+ ICSStyleManagerImageLoader protocol.
+ */
+@property (nonatomic, weak) id<ICSStyleManagerImageLoader> imageLoader;
+
+@end
+
+
+/**
+ An object must adopt the `ICSStyleManagerImageLoader`
+ protocol to be used as an image loader for `ICSStyleManager`.
+ A custom image loader is used in case you need to override
+ `ICSStyleManager`'s behavior that by default loads all the
+ images using `++[UIImage imageNamed:]`. You may want to
+ define a custom image loading behavior—for instance—to
+ exclude `++[UIImage imageNamed:]`'s cache mechanic and
+ possibly to use your own instead.
+ 
+ */
+@protocol ICSStyleManagerImageLoader <NSObject>
+
+/**
+ Asks the image loader to load an image.
+ 
+ @param styleManager The style manager requesting to load
+                     an image.
+ 
+ @param imageName    The name of the image to load as
+                     defined in a style file previously
+                     loaded by the style manager.
+ 
+ @return The loaded UIImage.
+ */
+- (UIImage *)styleManager:(ICSStyleManager *)styleManager imageNamed:(NSString *)imageName;
 
 @end

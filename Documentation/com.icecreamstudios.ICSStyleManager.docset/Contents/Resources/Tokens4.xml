@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Protocols/ICSStyleManagerImageLoader.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intf/ICSStyleManagerImageLoader</TokenIdentifier>
+			<Abstract type="html">An object must adopt the ICSStyleManagerImageLoader
+protocol to be used as an image loader for ICSStyleManager.
+A custom image loader is used in case you need to override
+ICSStyleManager&apos;s behavior that by default loads all the
+images using +[UIImage imageNamed:]. You may want to
+define a custom image loading behavior—for instance—to
+exclude +[UIImage imageNamed:]&apos;s cache mechanic and
+possibly to use your own instead.</Abstract>
+			<DeclaredIn>ICSStyleManager.h</DeclaredIn>
+            
+			
+			<NodeRef refid="4"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/ICSStyleManagerImageLoader/styleManager:imageNamed:</TokenIdentifier>
+			<Abstract type="html">Asks the image loader to load an image.</Abstract>
+			<DeclaredIn>ICSStyleManager.h</DeclaredIn>
+			
+			<Declaration>- (UIImage *)styleManager:(ICSStyleManager *)styleManager imageNamed:(NSString *)imageName</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>styleManager</Name>
+					<Abstract type="html">The style manager requesting to load
+                     an image.</Abstract>
+				</Parameter><Parameter>
+					<Name>imageName</Name>
+					<Abstract type="html">The name of the image to load as
+                     defined in a style file previously
+                     loaded by the style manager.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">The loaded UIImage.</Abstract></ReturnValue>
+			<Anchor>//api/name/styleManager:imageNamed:</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+        
+	</File>
+</Tokens>

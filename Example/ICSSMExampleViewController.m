@@ -8,6 +8,8 @@
 
 #import "ICSSMExampleViewController.h"
 #import "ICSSMExampleViewCell.h"
+#import "ICSSMExampleImageCell.h"
+#import "ICSSMExampleResizableImageCell.h"
 #import "ICSStyleManager.h"
 
 
@@ -15,6 +17,9 @@ typedef NS_ENUM(NSUInteger, ICSSMExampleSection) {
     ICSSMExampleLabel1Section = 0,
     ICSSMExampleLabel2Section,
     ICSSMExampleViewSection,
+    ICSSMExampleImageSection,
+    ICSSMExampleResizableImageSection,
+    ICSSMExamplePatternImageSection,
     ICSSMExampleSectionCount
 };
 
@@ -50,6 +55,9 @@ typedef NS_ENUM(NSUInteger, ICSSMExampleSection) {
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *const ICSSMExampleLabelCellIdentifier = @"ICSSMExampleLabelCellIdentifier";
     static NSString *const ICSSMExampleViewCellIdentifier = @"ICSSMExampleViewCellIdentifier";
+    static NSString *const ICSSMExampleImageCellIdentifier = @"ICSSMExampleImageCellIdentifier";
+    static NSString *const ICSSMExampleResizableImageCellIdentifier = @"ICSSMExampleResizableImageCellIdentifier";
+    static NSString *const ICSSMExamplePatternImageCellIdentifier = @"ICSSMExamplePatternImageCellIdentifier";
     
     UITableViewCell *cell = nil;
     
@@ -75,8 +83,36 @@ typedef NS_ENUM(NSUInteger, ICSSMExampleSection) {
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
     }
+    else if (indexPath.section == ICSSMExampleImageSection) {
+        // load image cell
+        cell = [self.tableView dequeueReusableCellWithIdentifier:ICSSMExampleImageCellIdentifier];
+        if (cell == nil) {
+            cell = [[ICSSMExampleImageCell alloc] initWithReuseIdentifier:ICSSMExampleImageCellIdentifier];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        }
+    }
+    else if (indexPath.section == ICSSMExampleResizableImageSection) {
+        // load image cell
+        cell = [self.tableView dequeueReusableCellWithIdentifier:ICSSMExampleResizableImageCellIdentifier];
+        if (cell == nil) {
+            cell = [[ICSSMExampleResizableImageCell alloc] initWithReuseIdentifier:ICSSMExampleResizableImageCellIdentifier];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        }
+    }
+    else if (indexPath.section == ICSSMExamplePatternImageSection) {
+        // load pattern image cell
+        cell = [self.tableView dequeueReusableCellWithIdentifier:ICSSMExamplePatternImageCellIdentifier];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ICSSMExamplePatternImageCellIdentifier];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        }
+        
+        cell.backgroundColor = [[ICSStyleManager sharedManager] colorForKey:@"tableView.patternCell.backgroundColor"];
+    }
     
-    cell.backgroundColor = [[ICSStyleManager sharedManager] colorForKey:@"tableView.cellBackgroundColor"];
+    if (indexPath.section != ICSSMExamplePatternImageSection) {
+        cell.backgroundColor = [[ICSStyleManager sharedManager] colorForKey:@"tableView.cellBackgroundColor"];
+    }
     
     return cell;
 }
@@ -86,6 +122,12 @@ typedef NS_ENUM(NSUInteger, ICSSMExampleSection) {
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == ICSSMExampleViewSection) {
         return [[ICSStyleManager sharedManager] floatForKey:@"tableView.viewCell.height"];
+    }
+    else if (indexPath.section == ICSSMExampleImageSection) {
+        return [[ICSStyleManager sharedManager] floatForKey:@"tableView.imageCell.height"];
+    }
+    else if (indexPath.section == ICSSMExampleResizableImageSection) {
+        return [[ICSStyleManager sharedManager] floatForKey:@"tableView.resizableImageCell.height"];
     }
     
     return [[ICSStyleManager sharedManager] floatForKey:@"tableView.defaultCellHeight"];
@@ -104,6 +146,15 @@ typedef NS_ENUM(NSUInteger, ICSSMExampleSection) {
     }
     else if (section == ICSSMExampleViewSection) {
         return NSLocalizedString(@"Example View", @"");
+    }
+    else if (section == ICSSMExampleImageSection) {
+        return NSLocalizedString(@"Example Image", @"");
+    }
+    else if (section == ICSSMExampleResizableImageSection) {
+        return NSLocalizedString(@"Example Resizable Image", @"");
+    }
+    else if (section == ICSSMExamplePatternImageSection) {
+        return NSLocalizedString(@"Example Pattern Image", @"");
     }
     
     return nil;

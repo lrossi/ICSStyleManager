@@ -75,6 +75,9 @@ static NSString *const STOStyleRGBAColorPattern = @"\\A\\%\\s*\\(\\s*([0-9]{1,3}
 // Pattern that matches a gray color value (e.g. `%(122)`)
 static NSString *const STOStyleGrayColorPattern = @"\\A\\%\\s*\\(\\s*([0-9]{1,3})\\s*\\)\\z";
 
+// Pattern that matches a pattern image color value (e.g. `%(pattern_image_name)`)
+static NSString *const STOStylePatternImageColorPattern = @"\\A\\%\\s*\\(\\s*([\\w.]*)\\s*\\)\\z";
+
 // Pattern that matches a rect value (e.g. `R(10, 10, 150, 200)`)
 static NSString *const STOStyleRectPattern = @"\\AR\\s*\\(\\s*(.*)\\s*,\\s*(.*)\\s*,\\s*(.*)\\s*,\\s*(.*)\\s*\\)\\z";
 
@@ -89,6 +92,12 @@ static NSString *const STOStyleFontPattern = @"\\AFONT\\s*\\(\\s*(.*)\\s*,\\s*([
 
 // Pattern that matches a preferred font value (e.g. `FONT(Headline)`)
 static NSString *const STOStylePreferredFontPattern = @"\\AFONT\\s*\\(\\s*(\\w*)\\s*\\)\\z";
+
+// Pattern that matches an image value (e.g. `IMAGE(example_image)`)
+static NSString *const STOStyleImagePattern = @"\\AIMAGE\\s*\\(\\s*([\\w.]*)\\s*\\)\\z";
+
+// Pattern that matches a resizable image with cap insets value (e.g. `IMAGE(example_image, 5, 5, 5, 5)`)
+static NSString *const STOStyleResizableImagePattern = @"\\AIMAGE\\s*\\(\\s*([\\w.]*)\\s*,\\s*(.*)\\s*,\\s*(.*)\\s*,\\s*(.*)\\s*,\\s*(.*)\\s*\\)\\z";
 
 // Pattern that matches the beginning of a group of values block (e.g. `groupName {`)
 static NSString *const STOStyleOpenGroupPattern = @"\\A([\\w|\\d|\\.]*)\\s*\\{\\z";
@@ -120,6 +129,14 @@ static NSString *const STOStylePreferredFontStyleCaption2 = @"Caption2";
 // as string into a NSNumber. The category is implemented at the bottom of this source file
 @interface NSString (ICSStyleManager)
 - (NSNumber *)sto_numberByEvaluatingStringWithStyleDescriptor:(NSDictionary *)styleDescriptor;
+@end
+
+
+// Declaration of a tiny class used to store the informations needed to defer the
+// loading of an image defined in a style file
+@interface ICSStyleImageDescriptor : NSObject
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSValue *capInsets;
 @end
 
 
@@ -240,7 +257,8 @@ static NSString *const STOStylePreferredFontStyleCaption2 = @"Caption2";
             || (evaluatedValue = [self parseAssignmentOfNumber:value])
             || (evaluatedValue = [self parseAssignmentOfColor:value])
             || (evaluatedValue = [self parseAssignmentOfCGValue:value])
-            || (evaluatedValue = [self parseAssignmentOfFont:value])) {
+            || (evaluatedValue = [self parseAssignmentOfFont:value])
+            || (evaluatedValue = [self parseAssignmentOfImage:value])) {
         // value to be assigned has been evaluated
         
         if (groups.count > 0) {
@@ -309,6 +327,15 @@ static NSString *const STOStylePreferredFontStyleCaption2 = @"Caption2";
     if (capturedSubstrings.count == 1) {
         int gray = [capturedSubstrings[0] intValue];
         return [UIColor ics_colorWithRGBValues:ICSRGBMake(gray, gray, gray)];
+    }
+    
+    
+    // test for pattern image color
+    capturedSubstrings = [NSRegularExpression ics_capturedSubstringsWithFirstMatchOfPattern:STOStylePatternImageColorPattern inString:value];
+    if (capturedSubstrings.count == 1) {
+        NSString *patternImageName = capturedSubstrings[0];
+        UIImage *patternImage = [self loadImageNamed:patternImageName];
+        return [UIColor colorWithPatternImage:patternImage];
     }
     
     return nil;
@@ -387,6 +414,36 @@ static NSString *const STOStylePreferredFontStyleCaption2 = @"Caption2";
     return nil;
 }
 
+- (id)parseAssignmentOfImage:(NSString *)value {
+    
+    // test for image
+    NSArray *capturedSubstrings = [NSRegularExpression ics_capturedSubstringsWithFirstMatchOfPattern:STOStyleImagePattern inString:value];
+    if (capturedSubstrings.count == 1) {
+        ICSStyleImageDescriptor *imageDescriptor = [[ICSStyleImageDescriptor alloc] init];
+        imageDescriptor.name = capturedSubstrings[0];
+        return imageDescriptor;
+    }
+    
+    
+    // test for resizable image
+    capturedSubstrings = [NSRegularExpression ics_capturedSubstringsWithFirstMatchOfPattern:STOStyleResizableImagePattern inString:value];
+    if (capturedSubstrings.count == 5) {
+        ICSStyleImageDescriptor *imageDescriptor = [[ICSStyleImageDescriptor alloc] init];
+        imageDescriptor.name = capturedSubstrings[0];
+        
+        UIEdgeInsets capInsets = UIEdgeInsetsMake([[capturedSubstrings[1] sto_numberByEvaluatingStringWithStyleDescriptor:self.styleDescriptor] floatValue],
+                                                  [[capturedSubstrings[2] sto_numberByEvaluatingStringWithStyleDescriptor:self.styleDescriptor] floatValue],
+                                                  [[capturedSubstrings[3] sto_numberByEvaluatingStringWithStyleDescriptor:self.styleDescriptor] floatValue],
+                                                  [[capturedSubstrings[4] sto_numberByEvaluatingStringWithStyleDescriptor:self.styleDescriptor] floatValue]);
+        
+        imageDescriptor.capInsets = [NSValue valueWithUIEdgeInsets:capInsets];
+        
+        return imageDescriptor;
+    }
+    
+    return nil;
+}
+
 
 #pragma mark - Access Values
 
@@ -412,6 +469,21 @@ static NSString *const STOStylePreferredFontStyleCaption2 = @"Caption2";
 
 - (UIFont *)fontForKey:(NSString *)key {
     return [self valueOfType:[UIFont class] forKey:key];
+}
+
+- (UIImage *)imageForKey:(NSString *)key {
+    ICSStyleImageDescriptor *imageDescriptor = [self valueOfType:[ICSStyleImageDescriptor class] forKey:key];
+    
+    // load image from descriptor
+    UIImage *image = [self loadImageNamed:imageDescriptor.name];
+    
+    if (imageDescriptor.capInsets != nil) {
+        // has cap insets => the image is resizable
+        image = [image resizableImageWithCapInsets:[imageDescriptor.capInsets UIEdgeInsetsValue]];
+        NSAssert(image != nil, @"[ICSStyleManager]: Unable to make image for key `%@` resizable", image);
+    }
+    
+    return image;
 }
 
 - (UIColor *)colorForKey:(NSString *)key {
@@ -440,6 +512,24 @@ static NSString *const STOStylePreferredFontStyleCaption2 = @"Caption2";
     NSAssert(value != nil, @"[ICSStyleManager]: Undefined key `%@`", key);
     NSAssert([value isKindOfClass:class], @"[ICSStyleManager]: Value for key `%@` is not of type `%@`", key, NSStringFromClass(class));
     return value;
+}
+
+- (UIImage *)loadImageNamed:(NSString *)imageName {
+    NSParameterAssert(imageName);
+    
+    UIImage *image;
+    
+    if (self.imageLoader != nil) {
+        // ask image loader for the image with the given name
+        image = [self.imageLoader styleManager:self imageNamed:imageName];
+    }
+    else {
+        // no image loader, load the image with +[UIImage imageNamed:]
+        image = [UIImage imageNamed:imageName];
+    }
+    
+    NSAssert(image != nil, @"[ICSStyleManager]: Unable to load image named `%@`", imageName);
+    return image;
 }
 
 @end
@@ -489,4 +579,14 @@ static NSString *const STOStylePreferredFontStyleCaption2 = @"Caption2";
     }
 }
 
+@end
+
+
+// -------------------------
+// Image Descriptor
+// -------------------------
+
+#pragma mark - Image Descriptor
+
+@implementation ICSStyleImageDescriptor
 @end

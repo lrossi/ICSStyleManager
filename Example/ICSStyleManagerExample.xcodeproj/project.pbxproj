@@ -21,6 +21,14 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		8201518018D84E310082D2E4 /* button_image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8201517E18D84E310082D2E4 /* button_image@2x.png */; };
+		8201518118D84E310082D2E4 /* highlighted_button_image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8201517F18D84E310082D2E4 /* highlighted_button_image@2x.png */; };
+		8201518418D84EB60082D2E4 /* pattern_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 8201518218D84EB60082D2E4 /* pattern_image.png */; };
+		8201518518D84EB60082D2E4 /* pattern_image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8201518318D84EB60082D2E4 /* pattern_image@2x.png */; };
+		8215680318D733A20071E64C /* ICSSMExampleImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8215680218D733A20071E64C /* ICSSMExampleImageCell.m */; };
+		8215680B18D740A00071E64C /* button_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 8215680918D740A00071E64C /* button_image.png */; };
+		8215680C18D740A00071E64C /* highlighted_button_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 8215680A18D740A00071E64C /* highlighted_button_image.png */; };
+		8215680F18D7530B0071E64C /* ICSSMExampleResizableImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8215680E18D7530B0071E64C /* ICSSMExampleResizableImageCell.m */; };
 		825F5EAB18898439004DAC36 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 825F5EAA18898439004DAC36 /* QuartzCore.framework */; };
 		82768BEF18800E89004128DD /* Example.style in Resources */ = {isa = PBXBuildFile; fileRef = 82768BEE18800E89004128DD /* Example.style */; };
 		82A09AF718AA8F1D0084778C /* _DDDecimalFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A09AC618AA8F1D0084778C /* _DDDecimalFunctions.m */; };
@@ -61,9 +69,21 @@
 		82B0AAC2187EC5FB00BA44AE /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 82B0AABF187EC5FB00BA44AE /* Default@2x.png */; };
 		82B0AAC5187EC69E00BA44AE /* ICSSMExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82B0AAC4187EC69E00BA44AE /* ICSSMExampleViewController.m */; };
 		82B157DF18897C7400203840 /* ICSSMExampleViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 82B157DE18897C7400203840 /* ICSSMExampleViewCell.m */; };
+		82D6EEC818D06EA1004E8541 /* example_image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 82D6EEC718D06EA1004E8541 /* example_image.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8201517E18D84E310082D2E4 /* button_image@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_image@2x.png"; sourceTree = SOURCE_ROOT; };
+		8201517F18D84E310082D2E4 /* highlighted_button_image@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "highlighted_button_image@2x.png"; sourceTree = SOURCE_ROOT; };
+		8201518218D84EB60082D2E4 /* pattern_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pattern_image.png; sourceTree = SOURCE_ROOT; };
+		8201518318D84EB60082D2E4 /* pattern_image@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pattern_image@2x.png"; sourceTree = SOURCE_ROOT; };
+		8201518818D869840082D2E4 /* ABOUT EXAMPLE IMAGES.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "ABOUT EXAMPLE IMAGES.txt"; sourceTree = SOURCE_ROOT; };
+		8215680118D733A20071E64C /* ICSSMExampleImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICSSMExampleImageCell.h; sourceTree = SOURCE_ROOT; };
+		8215680218D733A20071E64C /* ICSSMExampleImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICSSMExampleImageCell.m; sourceTree = SOURCE_ROOT; };
+		8215680918D740A00071E64C /* button_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_image.png; sourceTree = SOURCE_ROOT; };
+		8215680A18D740A00071E64C /* highlighted_button_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = highlighted_button_image.png; sourceTree = SOURCE_ROOT; };
+		8215680D18D7530B0071E64C /* ICSSMExampleResizableImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICSSMExampleResizableImageCell.h; sourceTree = SOURCE_ROOT; };
+		8215680E18D7530B0071E64C /* ICSSMExampleResizableImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICSSMExampleResizableImageCell.m; sourceTree = SOURCE_ROOT; };
 		825F5EAA18898439004DAC36 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		82768BEE18800E89004128DD /* Example.style */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Example.style; sourceTree = SOURCE_ROOT; };
 		82A09AC518AA8F1D0084778C /* _DDDecimalFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _DDDecimalFunctions.h; sourceTree = "<group>"; };
@@ -140,6 +160,7 @@
 		82B157DD18897C7400203840 /* ICSSMExampleViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICSSMExampleViewCell.h; sourceTree = SOURCE_ROOT; };
 		82B157DE18897C7400203840 /* ICSSMExampleViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICSSMExampleViewCell.m; sourceTree = SOURCE_ROOT; };
 		82B398C118966EC90021BD8A /* ICSStyleManagerExample-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ICSStyleManagerExample-Info.plist"; sourceTree = SOURCE_ROOT; };
+		82D6EEC718D06EA1004E8541 /* example_image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = example_image.jpg; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +178,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8201518618D867100082D2E4 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				82B157DD18897C7400203840 /* ICSSMExampleViewCell.h */,
+				82B157DE18897C7400203840 /* ICSSMExampleViewCell.m */,
+				8215680118D733A20071E64C /* ICSSMExampleImageCell.h */,
+				8215680218D733A20071E64C /* ICSSMExampleImageCell.m */,
+				8215680D18D7530B0071E64C /* ICSSMExampleResizableImageCell.h */,
+				8215680E18D7530B0071E64C /* ICSSMExampleResizableImageCell.m */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		8201518718D869570082D2E4 /* Example Images */ = {
+			isa = PBXGroup;
+			children = (
+				8201518818D869840082D2E4 /* ABOUT EXAMPLE IMAGES.txt */,
+				82D6EEC718D06EA1004E8541 /* example_image.jpg */,
+				8201518218D84EB60082D2E4 /* pattern_image.png */,
+				8201518318D84EB60082D2E4 /* pattern_image@2x.png */,
+				8215680918D740A00071E64C /* button_image.png */,
+				8201517E18D84E310082D2E4 /* button_image@2x.png */,
+				8215680A18D740A00071E64C /* highlighted_button_image.png */,
+				8201517F18D84E310082D2E4 /* highlighted_button_image@2x.png */,
+			);
+			name = "Example Images";
+			sourceTree = "<group>";
+		};
 		82A09B0E18AA8F670084778C /* Styles */ = {
 			isa = PBXGroup;
 			children = (
@@ -171,8 +220,7 @@
 			children = (
 				82B0AAC3187EC69E00BA44AE /* ICSSMExampleViewController.h */,
 				82B0AAC4187EC69E00BA44AE /* ICSSMExampleViewController.m */,
-				82B157DD18897C7400203840 /* ICSSMExampleViewCell.h */,
-				82B157DE18897C7400203840 /* ICSSMExampleViewCell.m */,
+				8201518618D867100082D2E4 /* Cells */,
 			);
 			name = "Main View Controller";
 			sourceTree = "<group>";
@@ -309,6 +357,7 @@
 				82B0AABD187EC5FB00BA44AE /* Default-568h@2x.png */,
 				82B0AABE187EC5FB00BA44AE /* Default.png */,
 				82B0AABF187EC5FB00BA44AE /* Default@2x.png */,
+				8201518718D869570082D2E4 /* Example Images */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -378,9 +427,16 @@
 				82AA78D51889A28100DDD1D7 /* Override-Example.style in Resources */,
 				82768BEF18800E89004128DD /* Example.style in Resources */,
 				82B0AAC2187EC5FB00BA44AE /* Default@2x.png in Resources */,
+				8215680B18D740A00071E64C /* button_image.png in Resources */,
 				82B0AAB7187EBF1500BA44AE /* InfoPlist.strings in Resources */,
+				8201518118D84E310082D2E4 /* highlighted_button_image@2x.png in Resources */,
+				8215680C18D740A00071E64C /* highlighted_button_image.png in Resources */,
 				82B0AAC1187EC5FB00BA44AE /* Default.png in Resources */,
+				8201518418D84EB60082D2E4 /* pattern_image.png in Resources */,
 				82B0AAC0187EC5FB00BA44AE /* Default-568h@2x.png in Resources */,
+				8201518018D84E310082D2E4 /* button_image@2x.png in Resources */,
+				8201518518D84EB60082D2E4 /* pattern_image@2x.png in Resources */,
+				82D6EEC818D06EA1004E8541 /* example_image.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,6 +468,7 @@
 				82B157DF18897C7400203840 /* ICSSMExampleViewCell.m in Sources */,
 				82A6817E18A25FBD00950CD3 /* NSRegularExpression+ICSRegEx.m in Sources */,
 				82A6817F18A25FBD00950CD3 /* UIColor+ICSRGB.m in Sources */,
+				8215680318D733A20071E64C /* ICSSMExampleImageCell.m in Sources */,
 				82B0AAC5187EC69E00BA44AE /* ICSSMExampleViewController.m in Sources */,
 				82A09B0118AA8F1D0084778C /* _DDRewriteRule.m in Sources */,
 				82A09B0A18AA8F1D0084778C /* DDParser.m in Sources */,
@@ -426,6 +483,7 @@
 				82A09AFC18AA8F1D0084778C /* _DDNumberExpression.m in Sources */,
 				82B0AABB187EBF2B00BA44AE /* main.m in Sources */,
 				82A09B0618AA8F1D0084778C /* DDMathEvaluator.m in Sources */,
+				8215680F18D7530B0071E64C /* ICSSMExampleResizableImageCell.m in Sources */,
 				82A09B0218AA8F1D0084778C /* _DDVariableExpression.m in Sources */,
 				82A09B0018AA8F1D0084778C /* _DDPrecisionFunctionEvaluator.m in Sources */,
 				82A09AFE18AA8F1D0084778C /* _DDOperatorTerm.m in Sources */,

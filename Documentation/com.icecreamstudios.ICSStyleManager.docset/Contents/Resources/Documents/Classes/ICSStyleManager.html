@@ -37,6 +37,11 @@
 	
 	
 	
+	<option value="properties">Properties</option>
+	
+	<option value="//api/name/imageLoader">&nbsp;&nbsp;&nbsp;&nbsp;imageLoader</option>
+	
+	
 	
 	
 	<option value="class_methods">Class Methods</option>
@@ -53,6 +58,8 @@
 	<option value="//api/name/floatForKey:">&nbsp;&nbsp;&nbsp;&nbsp;- floatForKey:</option>
 	
 	<option value="//api/name/fontForKey:">&nbsp;&nbsp;&nbsp;&nbsp;- fontForKey:</option>
+	
+	<option value="//api/name/imageForKey:">&nbsp;&nbsp;&nbsp;&nbsp;- imageForKey:</option>
 	
 	<option value="//api/name/integerForKey:">&nbsp;&nbsp;&nbsp;&nbsp;- integerForKey:</option>
 	
@@ -90,11 +97,19 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Getting Style Values">Getting Style Values</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Managing the Image Loader">Managing the Image Loader</a></span></li>
+	
 </ul></li>
 
 
 
 
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/imageLoader">imageLoader</a></span></li>
+	
+</ul></li>
 
 
 
@@ -113,6 +128,8 @@
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/floatForKey:">floatForKey:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/fontForKey:">fontForKey:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/imageForKey:">imageForKey:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/integerForKey:">integerForKey:</a></span></li>
 	
@@ -237,11 +254,15 @@ calculatedNumberValue = #(100 / 2.5)
 // define a UIFont value with name "Avenir-Book" and size 24 points
 fontValue = FONT (Avenir-Book, 24)
 
-// define UIColor value expressed in RGB coordinates
+// define a UIColor value expressed in RGB coordinates
 colorValue = %(244, 248, 251)
 
 // define a CGRect value corresponding to CGRectMake(10, 10, 44, 44)
 rectValue = R (10, 10, 44, 44)
+
+// define a UIImage value by loading an image from the app's bundle
+// resources
+imageValue = IMAGE (example_image)
 </code></pre>
 
 <p>The following sections describe each of the supported types and
@@ -281,7 +302,8 @@ preferred font&gt;)</code>, where:</p>
 <h4>Color Values</h4>
 
 <p>Color (i.e. <code>UIColor</code>) values can be defined in a <em>style file</em> with
-the syntaxes <code>%(r, g, b)</code>, <code>%(r, g, b, a)</code> or <code>%(gray)</code>, where:</p>
+the syntaxes <code>%(r, g, b)</code>, <code>%(r, g, b, a)</code>, <code>%(gray)</code> or
+<code>%(pattern_image)</code>, where:</p>
 
 <ul>
 <li><p><em>r</em>, <em>g</em> and <em>b</em> are color components written as integer numbers
@@ -289,13 +311,20 @@ the syntaxes <code>%(r, g, b)</code>, <code>%(r, g, b, a)</code> or <code>%(gray
 <li><p><em>a</em> is the alpha component written as a floating-point number in
  range between <code>0.0</code> and <code>1.0</code>.</p></li>
 <li><p><em>gray</em> is a gray color component (<em>r</em>=<em>g</em>=<em>b</em>) written as integer
-  number in range between <code>0</code> and <code>255</code>.</p></li>
+ number in range between <code>0</code> and <code>255</code>.</p></li>
+<li><p><em>pattern_image</em> is the name of an image that <code>ICSStyleManager</code>
+ will pass to <code>+[UIColor colorWithPatternImage:]</code> to construct
+ the <code>UIColor</code>value. The image will be loaded according to the
+ same policy used for <a href="#image-values">image values</a>.</p></li>
 </ul>
 
 
-<div class="warning"> <strong>Warning:</strong> Numerical expressions
-are not currently supported for the <em>r</em>, <em>g</em>, <em>b</em>,
-<em>a</em> and <em>gray</em> color components. </div>
+<div class="warning"> <strong>Warning:</strong>
+<a href="#numerical-expressions">Numerical expressions</a> are not
+currently supported for the <em>r</em>, <em>g</em>, <em>b</em>,
+<em>a</em> and <em>gray</em> color components.
+<a href="#variables">Variables</a> are not currently supported
+in place of a <em>pattern_image</em> name.</div>
 
 
 <h4>Rect Values</h4>
@@ -334,6 +363,32 @@ the syntax <code>P(x, y)</code>, where:</p>
 </ul>
 
 
+<h3><a id="image-values"></a>Image Values</h3>
+
+<p>Image (i.e. <code>UIImage</code>) values can be defined in a <em>style file</em> with
+either the syntax <code>IMAGE(&lt;image name&gt;)</code> or <code>IMAGE(&lt;image name&gt;,
+&lt;top cap inset&gt;, &lt;left cap inset&gt;, &lt;bottom cap inset&gt;, &lt;right cap
+inset&gt;)</code>, where:</p>
+
+<ul>
+<li><p>The <em>image name</em> is the name of the image to be loaded. By
+ default, <code>ICSStyleManager</code> uses <code>+[UIImage imageNamed:]</code> to
+ load the image from the app&rsquo;s bundle resources. You can override
+ this behavior by specifying an <a href="#//api/name/imageLoader">imageLoader</a>.
+ <div class="warning">In order to avoid preventive waste of
+ memory, the actual image loading only occurs when
+ <code>ICSStyleManager</code> is sent the message <a href="#//api/name/imageForKey:">imageForKey:</a> for the
+ appropriate key.</div></p></li>
+<li><p><em>top cap inset</em>, <em>left cap inset</em>, <em>bottom cap inset</em> and <em>right
+ cap inset</em> are the values you would pass to <code>UIEdgeInsetsMake()</code>
+ and can be written as integers, floating-point numbers or
+ <a href="#numerical-expressions">numerical expressions</a>. If you specify
+ cap insets, <code>ICSStyleManager</code> will consider the image resizable
+ and will construct the UIImage value through
+ <code>-[UIImage resizableImageWithCapInsets:]</code>.</p></li>
+</ul>
+
+
 <h4><a id="numerical-expressions"></a> Numerical Expressions</h4>
 
 <p><code>ICSStyleManager</code> uses
@@ -343,8 +398,8 @@ to evaluate numerical expressions into numbers. Refer to the
 <a href="https://github.com/davedelong/DDMathParser/wiki/Operators">operators</a>
 and
 <a href="https://github.com/davedelong/DDMathParser/wiki/Built-in-Functions">functions</a>.
-For example, <code>floor(5 / 2)</code> is a valid numerical expression to be
-used in a <em>style file</em>.</p>
+For example, <code>floor(5 / 2)</code> is a valid numerical expression that can
+be used in a <em>style file</em>.</p>
 
 <h4>Groups of Values</h4>
 
@@ -564,6 +619,12 @@ preprocessor identifier.</p>
 	
 </li><li>
 	<span class="tooltip">
+		<code><a href="#//api/name/imageForKey:">&ndash;&nbsp;imageForKey:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
 		<code><a href="#//api/name/colorForKey:">&ndash;&nbsp;colorForKey:</a></code>
 	</span>
 	
@@ -589,11 +650,72 @@ preprocessor identifier.</p>
 </li>
 						</ul>
 						
+						
+						<a title="Managing the Image Loader" name="task_Managing the Image Loader"></a>
+						<h3 class="subsubtitle task-title">Managing the Image Loader</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/imageLoader">&nbsp;&nbsp;imageLoader</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li>
+						</ul>
+						
 					</div>
 					
 					
 					
 					
+					
+					<div class="section section-methods">
+						<a title="Properties" name="properties"></a>
+						<h2 class="subtitle subtitle-methods">Properties</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/imageLoader" title="imageLoader"></a>
+	<h3 class="subsubtitle method-title">imageLoader</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The object that acts as image loader for all the images
+defined in the loaded style files. If this property is
+set to nil (which is the default value), <code>ICSStyleManager</code>
+will load images using <code>+[UIImage imageNamed:]</code>. The
+image loader object must adopt the
+<a href="../Protocols/ICSStyleManagerImageLoader.html">ICSStyleManagerImageLoader</a> protocol.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, weak) id&lt;ICSStyleManagerImageLoader&gt; imageLoader</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">ICSStyleManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
 					
 					
 					
@@ -816,6 +938,69 @@ key.</p>
 	<div class="method-subsection return">
 		<h4 class="method-subtitle parameter-title">Return Value</h4>
 		<p>The <code>UIFont</code> value associated with the specified
+            key.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection see-also-section">
+		<h4 class="method-subtitle">See Also</h4>
+		<ul>
+			
+			<li><code><p><a href="#//api/name/loadStyle:">- loadStyle:</a></p></code></li>
+			
+		</ul>
+	</div>
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">ICSStyleManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/imageForKey:" title="imageForKey:"></a>
+	<h3 class="subsubtitle method-title">imageForKey:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns the <code>UIImage</code> value associated with the specified
+key.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (UIImage *)imageForKey:(NSString *)<em>key</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>key</em></dt>
+			<dd><p>A key defined in a style previously loaded with
+            <a href="#//api/name/loadStyle:">loadStyle:</a>.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>The <code>UIImage</code> value associated with the specified
             key.</p>
 	</div>
 	
@@ -1296,7 +1481,7 @@ specified key.</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2014 ice cream studios s.r.l.. All rights reserved. (Last updated: 2014-02-12)</span><br />
+						<p><span class="copyright">&copy; 2014 ice cream studios s.r.l.. All rights reserved. (Last updated: 2014-03-19)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 963)</a>.</span></p>
 						

@@ -78,4 +78,36 @@ tableView {
         
         height = #((@tableView.viewCell.squareMargin * 3) + (@tableView.viewCell.squareHeight * 2))
     }
+    
+    imageCell {
+        height = #(260)
+        imageMargin = #(18)
+        image = IMAGE (example_image.jpg)
+    }
+    
+    resizableImageCell {
+        height = #(86)
+        
+        button {
+            margin = #(18)
+            text {
+                font = FONT(Headline)
+                color {
+                    normal = @mainColor.foreground
+                    highlighted = %(255)
+                }
+            }
+
+            image {
+                // load a resizable image with top cap inset, left cap inset,
+                // bottom cap inset and right cap inset = 25
+                normal = IMAGE (button_image, 25, 25, 25, 25)
+                highlighted = IMAGE (highlighted_button_image, 25, 25, 25, 25)
+            }
+        }
+    }
+
+    patternCell {
+        backgroundColor = %(pattern_image)
+    }
 }

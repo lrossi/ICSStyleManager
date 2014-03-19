@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
-		<title>UIColor(ICSRGB) Category Reference</title>
+		<title>ICSStyleManagerImageLoader Protocol Reference</title>
 		<meta id="xcode-display" name="xcode-display" content="render"/>
 		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
 		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
@@ -16,7 +16,7 @@
 			</div>
 			
 			<div id="title" role="banner">
-				<h1 class="hideInXcode">UIColor(ICSRGB) Category Reference</h1>
+				<h1 class="hideInXcode">ICSStyleManagerImageLoader Protocol Reference</h1>
 			</div>
 			<ul id="headerButtons" role="toolbar">
 				<li id="toc_button">
@@ -39,15 +39,11 @@
 	
 	
 	
-	<option value="class_methods">Class Methods</option>
-	
-	<option value="//api/name/ics_colorWithRGBAValues:">&nbsp;&nbsp;&nbsp;&nbsp;+ ics_colorWithRGBAValues:</option>
-	
-	<option value="//api/name/ics_colorWithRGBValues:">&nbsp;&nbsp;&nbsp;&nbsp;+ ics_colorWithRGBValues:</option>
-	
-	<option value="//api/name/ics_colorWithRGBValues:alpha:">&nbsp;&nbsp;&nbsp;&nbsp;+ ics_colorWithRGBValues:alpha:</option>
 	
 	
+	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/styleManager:imageNamed:">&nbsp;&nbsp;&nbsp;&nbsp;- styleManager:imageNamed:</option>
 	
 	
 	
@@ -65,8 +61,6 @@
 
 <li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Creating Colors">Creating Colors</a></span></li>
-	
 </ul></li>
 
 
@@ -75,24 +69,20 @@
 
 
 
-<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#class_methods">Class Methods</a></span><ul>
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/ics_colorWithRGBAValues:">ics_colorWithRGBAValues:</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/ics_colorWithRGBValues:">ics_colorWithRGBValues:</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/ics_colorWithRGBValues:alpha:">ics_colorWithRGBValues:alpha:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/styleManager:imageNamed:">styleManager:imageNamed:</a></span></li>
 	
 </ul></li>
-
-
 
 
 			</ul>
 		</nav>
 		<article>
 			<div id="contents" class="isShowingTOC" role="main">
-				<a title="UIColor(ICSRGB) Category Reference" name="top"></a>
+				<a title="ICSStyleManagerImageLoader Protocol Reference" name="top"></a>
 				<div class="main-navigation navigation-top">
 					<ul>
 	<li><a href="../index.html">Index</a></li>
@@ -101,15 +91,18 @@
 				</div>
 				<div id="header">
 					<div class="section-header">
-						<h1 class="title title-header">UIColor(ICSRGB) Category Reference</h1>
+						<h1 class="title title-header">ICSStyleManagerImageLoader Protocol Reference</h1>
 					</div>		
 				</div>
 				<div id="container">	
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
 						<tr>
+	<td class="specification-title">Conforms to</td>
+	<td class="specification-value">NSObject</td>
+</tr><tr>
 	<td class="specification-title">Declared in</td>
-	<td class="specification-value">UIColor+ICSRGB.h<br />UIColor+ICSRGB.m</td>
+	<td class="specification-value">ICSStyleManager.h</td>
 </tr>
 						</tbody></table></div>
 					
@@ -119,8 +112,14 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>The <code>ICSRGB</code> category adds easy <code>UIColor</code> instance creation
-given <em>RGB</em> and <em>RGBA</em> values.</p>
+						<p>An object must adopt the <code>ICSStyleManagerImageLoader</code>
+protocol to be used as an image loader for <a href="../Classes/ICSStyleManager.html"><code>ICSStyleManager</code></a>.
+A custom image loader is used in case you need to override
+<a href="../Classes/ICSStyleManager.html"><code>ICSStyleManager</code></a>&rsquo;s behavior that by default loads all the
+images using <code>+[UIImage imageNamed:]</code>. You may want to
+define a custom image loading behavior—for instance—to
+exclude <code>+[UIImage imageNamed:]</code>&rsquo;s cache mechanic and
+possibly to use your own instead.</p>
 					</div>
 					
 					
@@ -132,28 +131,16 @@ given <em>RGB</em> and <em>RGBA</em> values.</p>
 						<h2 class="subtitle subtitle-tasks">Tasks</h2>
 						
 						
-						<a title="Creating Colors" name="task_Creating Colors"></a>
 						
-<h3 class="subsubtitle task-title">Creating Colors</h3>
+						
+
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/ics_colorWithRGBValues:">+&nbsp;ics_colorWithRGBValues:</a></code>
+		<code><a href="#//api/name/styleManager:imageNamed:">&ndash;&nbsp;styleManager:imageNamed:</a></code>
 	</span>
 	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/ics_colorWithRGBValues:alpha:">+&nbsp;ics_colorWithRGBValues:alpha:</a></code>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/ics_colorWithRGBAValues:">+&nbsp;ics_colorWithRGBAValues:</a></code>
-	</span>
-	
-	
+	<span class="task-item-suffix">required method</span>
 </li>
 						</ul>
 						
@@ -165,25 +152,25 @@ given <em>RGB</em> and <em>RGBA</em> values.</p>
 					
 					
 					
+					
+					
 					<div class="section section-methods">
-						<a title="Class Methods" name="class_methods"></a>
-						<h2 class="subtitle subtitle-methods">Class Methods</h2>
+						<a title="Instance Methods" name="instance_methods"></a>
+						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/ics_colorWithRGBAValues:" title="ics_colorWithRGBAValues:"></a>
-	<h3 class="subsubtitle method-title">ics_colorWithRGBAValues:</h3>
+	<a name="//api/name/styleManager:imageNamed:" title="styleManager:imageNamed:"></a>
+	<h3 class="subsubtitle method-title">styleManager:imageNamed:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Returns a color created with the given RGBA components. This
-is equivalent to calling <a href="#//api/name/ics_colorWithRGBValues:alpha:">ics_colorWithRGBValues:alpha:</a> and passing
-<code>rgbaValues.a</code> as <code>alpha</code> parameter.</p>
+		<p>Asks the image loader to load an image.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>+ (UIColor *)ics_colorWithRGBAValues:(ICSRGBA)<em>rgbaValues</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (UIImage *)styleManager:(ICSStyleManager *)<em>styleManager</em> imageNamed:(NSString *)<em>imageName</em></code></div>
 
     
 	
@@ -191,8 +178,16 @@ is equivalent to calling <a href="#//api/name/ics_colorWithRGBValues:alpha:">ics
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
 		
 		<dl class="argument-def parameter-def">
-			<dt><em>rgbaValues</em></dt>
-			<dd><p>The RGBA components of the new color.</p></dd>
+			<dt><em>styleManager</em></dt>
+			<dd><p>The style manager requesting to load
+                     an image.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>imageName</em></dt>
+			<dd><p>The name of the image to load as
+                     defined in a style file previously
+                     loaded by the style manager.</p></dd>
 		</dl>
 		
 	</div>
@@ -201,68 +196,7 @@ is equivalent to calling <a href="#//api/name/ics_colorWithRGBValues:alpha:">ics
 	
 	<div class="method-subsection return">
 		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>A color created with the given RGBA components.</p>
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection see-also-section">
-		<h4 class="method-subtitle">See Also</h4>
-		<ul>
-			
-			<li><code><p><a href="#//api/name/ics_colorWithRGBValues:alpha:">+ ics_colorWithRGBValues:alpha:</a></p></code></li>
-			
-		</ul>
-	</div>
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">UIColor+ICSRGB.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/ics_colorWithRGBValues:" title="ics_colorWithRGBValues:"></a>
-	<h3 class="subsubtitle method-title">ics_colorWithRGBValues:</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Returns a color created with the given RGB components. The alpha
-component of the new color is set to <code>1.0</code>.</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>+ (UIColor *)ics_colorWithRGBValues:(ICSRGB)<em>rgbValues</em></code></div>
-
-    
-	
-	<div class="method-subsection arguments-section parameters">
-		<h4 class="method-subtitle parameter-title">Parameters</h4>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>rgbValues</em></dt>
-			<dd><p>The RGB components of the new color.</p></dd>
-		</dl>
-		
-	</div>
-	
-	
-	
-	<div class="method-subsection return">
-		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>A color created with the given RGB components.</p>
+		<p>The loaded UIImage.</p>
 	</div>
 	
 	
@@ -277,71 +211,13 @@ component of the new color is set to <code>1.0</code>.</p>
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">UIColor+ICSRGB.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/ics_colorWithRGBValues:alpha:" title="ics_colorWithRGBValues:alpha:"></a>
-	<h3 class="subsubtitle method-title">ics_colorWithRGBValues:alpha:</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Returns a color created with the given RGB and alpha components.</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>+ (UIColor *)ics_colorWithRGBValues:(ICSRGB)<em>rgbValues</em> alpha:(CGFloat)<em>alpha</em></code></div>
-
-    
-	
-	<div class="method-subsection arguments-section parameters">
-		<h4 class="method-subtitle parameter-title">Parameters</h4>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>rgbValues</em></dt>
-			<dd><p>The RGB components of the new color.</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>alpha</em></dt>
-			<dd><p>The alpha component of the new color.</p></dd>
-		</dl>
-		
-	</div>
-	
-	
-	
-	<div class="method-subsection return">
-		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>A color created with the given RGB and alpha components.</p>
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">UIColor+ICSRGB.h</code><br />
+		<code class="declared-in-ref">ICSStyleManager.h</code><br />
 	</div>				
 	
 	
 </div>
 						
 					</div>
-					
-					
 					
 					
                     

@@ -28,6 +28,15 @@
 				</Node>
 				
                 
+				<Node>
+					<Name>Protocols</Name>
+					<Path>index.html</Path>
+					<Subnodes>
+						<NodeRef refid="4"/>
+						
+					</Subnodes>
+				</Node>
+				
                 
 			</Subnodes>
         </Node>
@@ -48,6 +57,12 @@
                     <Path>Classes/ICSStyleManager.html</Path>
                     <Name>Tasks</Name>
                     <Anchor>tasks</Anchor>
+                </Node>
+                
+                <Node type="section">
+                    <Path>Classes/ICSStyleManager.html</Path>
+                    <Name>Properties</Name>
+                    <Anchor>properties</Anchor>
                 </Node>
                 
                 
@@ -123,7 +138,34 @@
             
         </Node>
 		
-        
+        <Node id="4" type="file" documentType="reference">
+            <Name>ICSStyleManagerImageLoader</Name>
+            <Path>Protocols/ICSStyleManagerImageLoader.html</Path>
+            
+                <Subnodes>
+                <Node type="section">
+                    <Path>Protocols/ICSStyleManagerImageLoader.html</Path>
+                    <Name>Overview</Name>
+                    <Anchor>overview</Anchor>
+                </Node>
+                <Node type="section">
+                    <Path>Protocols/ICSStyleManagerImageLoader.html</Path>
+                    <Name>Tasks</Name>
+                    <Anchor>tasks</Anchor>
+                </Node>
+                
+                
+                
+                <Node type="section">
+                    <Path>Protocols/ICSStyleManagerImageLoader.html</Path>
+                    <Name>Instance Methods</Name>
+                    <Anchor>instance_methods</Anchor>
+                </Node>
+                
+            </Subnodes>
+            
+        </Node>
+		
         
 	</Library>
 </DocSetNodes>

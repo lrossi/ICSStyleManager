@@ -27,6 +27,10 @@ Assuming your app's Bundle Resources contain a file called *Example.style* with 
 	 // define a UIColor value expressed in RGB coordinates
 	 colorValue = %(244, 248, 251)
 	 
+	 // define a UIImage value by loading an image from the app's bundle
+	 // resources
+	 imageValue = IMAGE (example_image)
+	 
 	 view {
 	 	// define a CGRect value corresponding to CGRectMake(10, 10, 44, 44)
 	 	frame = R (10, 10, 44, 44)
@@ -45,10 +49,11 @@ Then the values it defines can be accessed in your app's code by writing:
 	CGFloat calculatedNumberValue = [[ICSStyleManager sharedManager] floatForKey:@"calculatedNumberValue"];
 	UIFont *fontValue = [[ICSStyleManager sharedManager] fontForKey:@"fontValue"];
 	UIColor *colorValue = [[ICSStyleManager sharedManager] colorForKey:@"colorValue"];
+	UIImage *imageValue = [[ICSStyleManager sharedManager] imageForKey:@"imageValue"];
 	CGRect viewFrame = [[ICSStyleManager sharedManager] rectForKey:@"view.frame"];
 ```
 
-ICSStyleManager's supported value are currently `UIFont` (including iOS 7's `+[UIFont preferredFontForTextStyle:]`), `UIColor` (including the alpha component), `CGFloat`, `CGSize`, `CGPoint`, `CGRect`, `NSUInteger`, `NSInteger` and `NSTimeInterval`.
+ICSStyleManager's supported value are currently `UIFont` (including iOS 7's `+[UIFont preferredFontForTextStyle:]`), `UIColor` (including alpha component and pattern images), `UIImage` (including resizable images with cap insets), `CGFloat`, `CGSize`, `CGPoint`, `CGRect`, `NSUInteger`, `NSInteger` and `NSTimeInterval`.
 
 Despite its minimal code base, ICSStyleManager also offers a few advanced features:
 
