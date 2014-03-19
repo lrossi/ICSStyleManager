@@ -66,13 +66,13 @@ static NSString *const STOStyleInnerVariablePattern = @"@([\\w|\\d|\\.]*)";
 // Pattern that matches a number value (e.g. `#(10)`)
 static NSString *const STOStyleNumberPattern = @"\\A#\\s*\\((.*)\\)\\z";
 
-// Pattern that matches a r, g, b color value (e.g. `#(122, 200, 15)`)
+// Pattern that matches a r, g, b color value (e.g. `%(122, 200, 15)`)
 static NSString *const STOStyleRGBColorPattern = @"\\A\\%\\s*\\(\\s*([0-9]{1,3})\\s*,\\s*([0-9]{1,3})\\s*,\\s*([0-9]{1,3})\\s*\\)\\z";
 
-// Pattern that matches a r, g, b, a color value (e.g. `#(122, 200, 15, 0.8)`)
+// Pattern that matches a r, g, b, a color value (e.g. `%(122, 200, 15, 0.8)`)
 static NSString *const STOStyleRGBAColorPattern = @"\\A\\%\\s*\\(\\s*([0-9]{1,3})\\s*,\\s*([0-9]{1,3})\\s*,\\s*([0-9]{1,3})\\s*,\\s*([0-9.]+)\\s*\\)\\z";
 
-// Pattern that matches a gray color value (e.g. `#(122)`)
+// Pattern that matches a gray color value (e.g. `%(122)`)
 static NSString *const STOStyleGrayColorPattern = @"\\A\\%\\s*\\(\\s*([0-9]{1,3})\\s*\\)\\z";
 
 // Pattern that matches a rect value (e.g. `R(10, 10, 150, 200)`)

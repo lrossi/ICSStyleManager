@@ -24,7 +24,7 @@ Assuming your app's Bundle Resources contain a file called *Example.style* with 
 	 // define a UIFont value with name "Avenir-Book" and size 24 points
 	 fontValue = FONT (Avenir-Book, 24)
 	 
-	 // define UIColor value expressed in RGB coordinates
+	 // define a UIColor value expressed in RGB coordinates
 	 colorValue = %(244, 248, 251)
 	 
 	 view {

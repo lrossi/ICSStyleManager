@@ -96,7 +96,7 @@
     // define a UIFont value with name "Avenir-Book" and size 24 points
     fontValue = FONT (Avenir-Book, 24)
     
-    // define UIColor value expressed in RGB coordinates
+    // define a UIColor value expressed in RGB coordinates
     colorValue = %(244, 248, 251)
     
     // define a CGRect value corresponding to CGRectMake(10, 10, 44, 44)
@@ -143,7 +143,7 @@
  -  *a* is the alpha component written as a floating-point number in
     range between `0.0` and `1.0`.
  
- - *gray* is a gray color component (*r*=*g*=*b*) written as integer
+ -  *gray* is a gray color component (*r*=*g*=*b*) written as integer
     number in range between `0` and `255`.
  
  <div class="warning"> <strong>Warning:</strong> Numerical expressions
@@ -186,8 +186,8 @@
  [operators](https://github.com/davedelong/DDMathParser/wiki/Operators)
  and
  [functions](https://github.com/davedelong/DDMathParser/wiki/Built-in-Functions).
- For example, `floor(5 / 2)` is a valid numerical expression to be
- used in a *style file*.
+ For example, `floor(5 / 2)` is a valid numerical expression that can
+ be used in a *style file*.
  
  #### Groups of Values
  
