@@ -61,7 +61,7 @@ tableView {
     }
 
     viewCell {
-        squareMargin = #(10)
+        squareMargin = #(18)
         squareHeight = #(50)
 
         square1 {
