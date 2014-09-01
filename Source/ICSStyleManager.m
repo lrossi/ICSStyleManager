@@ -76,7 +76,7 @@ static NSString *const STOStyleRGBAColorPattern = @"\\A\\%\\s*\\(\\s*([0-9]{1,3}
 static NSString *const STOStyleGrayColorPattern = @"\\A\\%\\s*\\(\\s*([0-9]{1,3})\\s*\\)\\z";
 
 // Pattern that matches a pattern image color value (e.g. `%(pattern_image_name)`)
-static NSString *const STOStylePatternImageColorPattern = @"\\A\\%\\s*\\(\\s*([\\w.]*)\\s*\\)\\z";
+static NSString *const STOStylePatternImageColorPattern = @"\\A\\%\\s*\\(\\s*([\\w-.]*)\\s*\\)\\z";
 
 // Pattern that matches a rect value (e.g. `R(10, 10, 150, 200)`)
 static NSString *const STOStyleRectPattern = @"\\AR\\s*\\(\\s*(.*)\\s*,\\s*(.*)\\s*,\\s*(.*)\\s*,\\s*(.*)\\s*\\)\\z";
@@ -94,7 +94,7 @@ static NSString *const STOStyleFontPattern = @"\\AFONT\\s*\\(\\s*(.*)\\s*,\\s*([
 static NSString *const STOStylePreferredFontPattern = @"\\AFONT\\s*\\(\\s*(\\w*)\\s*\\)\\z";
 
 // Pattern that matches an image value (e.g. `IMAGE(example_image)`)
-static NSString *const STOStyleImagePattern = @"\\AIMAGE\\s*\\(\\s*([\\w.]*)\\s*\\)\\z";
+static NSString *const STOStyleImagePattern = @"\\AIMAGE\\s*\\(\\s*([\\w-.]*)\\s*\\)\\z";
 
 // Pattern that matches a resizable image with cap insets value (e.g. `IMAGE(example_image, 5, 5, 5, 5)`)
 static NSString *const STOStyleResizableImagePattern = @"\\AIMAGE\\s*\\(\\s*([\\w.]*)\\s*,\\s*(.*)\\s*,\\s*(.*)\\s*,\\s*(.*)\\s*,\\s*(.*)\\s*\\)\\z";
