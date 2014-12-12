@@ -399,6 +399,21 @@
  */
 - (void)loadStyle:(NSString *)styleName;
 
+/**
+ Loads a style from a style file into the style manager. Once a
+ style has been loaded, the values it defines can be retrieved
+ by passing the corresponding keys to the getter methods.
+ Debug logging when loading a style can be enabled by defining
+ the `ICS_STYLE_MANAGER_LOG` preprocessor identifier.
+
+ @param styleName The name of the style to be loaded. The `.style`
+                  extension will be appended to the style name.
+
+ @param bundle    Custom Bundle Resource, where *styleName* file
+                  is located. Useful for libraries to have their
+                  stylesheets inside it's own bundles.
+*/
+- (void)loadStyle:(NSString *)styleName fromBundle:(NSBundle *)bundle;
 
 /** @name Getting Style Values */
 
