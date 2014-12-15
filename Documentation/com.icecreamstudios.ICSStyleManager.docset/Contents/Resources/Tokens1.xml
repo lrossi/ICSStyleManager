@@ -38,6 +38,11 @@ Debug logging when loading a style can be enabled by defining
 the ICSSTYLEMANAGER_LOG preprocessor identifier.</Abstract>
 			<DeclaredIn>ICSStyleManager.h</DeclaredIn>
 			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instm/ICSStyleManager/loadStyle:fromBundle:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
 			<Declaration>- (void)loadStyle:(NSString *)styleName</Declaration>
 			<Parameters>
 				<Parameter>
@@ -51,6 +56,42 @@ the ICSSTYLEMANAGER_LOG preprocessor identifier.</Abstract>
 			</Parameters>
 			
 			<Anchor>//api/name/loadStyle:</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ICSStyleManager/loadStyle:fromBundle:</TokenIdentifier>
+			<Abstract type="html">Loads a style from a style file into the style manager. Once a
+style has been loaded, the values it defines can be retrieved
+by passing the corresponding keys to the getter methods.
+Debug logging when loading a style can be enabled by defining
+the ICSSTYLEMANAGER_LOG preprocessor identifier.</Abstract>
+			<DeclaredIn>ICSStyleManager.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instm/ICSStyleManager/loadStyle:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)loadStyle:(NSString *)styleName fromBundle:(NSBundle *)bundle</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>styleName</Name>
+					<Abstract type="html">The name of the style to be loaded. The .style
+                  extension will be appended to the style name.</Abstract>
+				</Parameter><Parameter>
+					<Name>bundle</Name>
+					<Abstract type="html">Custom bundle where styleName file is located.
+                  Useful for libraries to have their stylesheets
+                  inside their own Bundle Resources. In case a
+                  style with the given name is not found inside
+                  the given bundle, the manager will attempt to
+                  load the style file from the app&apos;s main Bundle
+                  Resources.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/loadStyle:fromBundle:</Anchor>
             <NodeRef refid="1"/>
 		</Token>
 		
@@ -358,6 +399,7 @@ ICSStyleManagerImageLoader protocol.</Abstract>
             <NodeRef refid="1"/>
 		</Token>
 		
+        
         
 	</File>
 </Tokens>
