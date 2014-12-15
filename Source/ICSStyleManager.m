@@ -182,13 +182,26 @@ static NSString *const STOStylePreferredFontStyleCaption2 = @"Caption2";
 #pragma mark - Style Loading
 
 - (void)loadStyle:(NSString *)styleName {
-    NSParameterAssert(styleName);
+    [self loadStyle:styleName fromBundle:[NSBundle mainBundle]];
+}
 
-    // add style file extension to the style name
-    NSString *stylePath = [[NSBundle mainBundle] pathForResource:styleName ofType:STOStyleFileExtension];
-    // load the style file from the app bundle into an NSString
+- (void)loadStyle:(NSString *)styleName fromBundle:(NSBundle *)bundle {
+    NSParameterAssert(styleName);
+    NSParameterAssert(bundle);
+
+    // add style file extension to the style name and load it from the
+    // given bundle
+    NSString *stylePath = [bundle pathForResource:styleName ofType:STOStyleFileExtension];
+    
+    if (stylePath == nil && bundle != [NSBundle mainBundle]) {
+        // try to load from main bundle explicitly
+        stylePath = [[NSBundle mainBundle] pathForResource:styleName ofType:STOStyleFileExtension];
+    }
+    
+    // load the style file into an NSString
     NSError *error = nil;
     NSString *styleText = [[NSString alloc] initWithContentsOfFile:stylePath encoding:NSUTF8StringEncoding error:&error];
+
     NSAssert(styleText != nil, @"[ICSStyleManager]: Error loading style `%@`: %@", styleName, error);
     
     // separate the style text file into lines
