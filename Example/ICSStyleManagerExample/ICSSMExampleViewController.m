@@ -97,6 +97,15 @@ typedef NS_ENUM(NSUInteger, ICSSMExampleSection) {
         if (cell == nil) {
             cell = [[ICSSMExampleResizableImageCell alloc] initWithReuseIdentifier:ICSSMExampleResizableImageCellIdentifier];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            
+            __weak typeof(self) weakSelf = self;
+            ICSSMExampleResizableImageCell *exampleResizableImageCell = ((ICSSMExampleResizableImageCell *)cell);
+            
+            exampleResizableImageCell.didTapButton = ^{
+                UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:NSLocalizedString(@"`Example Button` tapped", @"") preferredStyle:UIAlertControllerStyleAlert];
+                [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"OK", @"") style:UIAlertActionStyleDefault handler:nil]];
+                [weakSelf presentViewController:alert animated:YES completion:nil];
+            };
         }
     }
     else if (indexPath.section == ICSSMExamplePatternImageSection) {
@@ -181,8 +190,9 @@ typedef NS_ENUM(NSUInteger, ICSSMExampleSection) {
 #pragma mark - Done Button
 
 - (void)done {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:NSLocalizedString(@"`Done` button tapped", @"") delegate:nil cancelButtonTitle:nil otherButtonTitles:NSLocalizedString(@"OK", @""), nil];
-    [alert show];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:NSLocalizedString(@"`Done` button tapped", @"") preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"OK", @"") style:UIAlertActionStyleDefault handler:nil]];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 @end

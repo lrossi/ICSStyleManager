@@ -55,8 +55,9 @@
 }
 
 - (void)tap {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:NSLocalizedString(@"`Example Button` tapped", @"") delegate:nil cancelButtonTitle:nil otherButtonTitles:NSLocalizedString(@"OK", @""), nil];
-    [alert show];
+    if (self.didTapButton) {
+        self.didTapButton();
+    }
 }
 
 @end

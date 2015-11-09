@@ -10,6 +10,8 @@
 
 @interface ICSSMExampleResizableImageCell : UITableViewCell
 
+@property (copy, nonatomic) void (^didTapButton)();
+
 - (id)initWithReuseIdentifier:(NSString *)reuseIdentifier;
 
 @end
