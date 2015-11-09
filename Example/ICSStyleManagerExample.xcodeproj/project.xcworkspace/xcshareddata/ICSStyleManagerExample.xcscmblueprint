@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "AE0131E65AB4F9F184882BCBA28097A94B151EC3",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "AE0131E65AB4F9F184882BCBA28097A94B151EC3" : 0,
+    "0E8C5882B3625751205CFF7BE651A0DAD3F1A0AB" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "802EDE36-F079-44A9-B89D-6B650036A66F",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "AE0131E65AB4F9F184882BCBA28097A94B151EC3" : "ICSStyleManager\/",
+    "0E8C5882B3625751205CFF7BE651A0DAD3F1A0AB" : "ICSStyleManager\/Source\/Libraries\/DDMathParser\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "ICSStyleManagerExample",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Example\/ICSStyleManagerExample.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/davedelong\/DDMathParser",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "0E8C5882B3625751205CFF7BE651A0DAD3F1A0AB"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/icecreamstudios\/ICSStyleManager.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "AE0131E65AB4F9F184882BCBA28097A94B151EC3"
+    }
+  ]
+}
